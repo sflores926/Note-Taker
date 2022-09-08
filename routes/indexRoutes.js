@@ -1,6 +1,7 @@
 //dependencies
-const router = require('express').Router();
 const path = require ('path');
+const router = require('express').Router();
+
 
 
 //routes to notes/db.json/main page
@@ -17,4 +18,4 @@ router.get("*", (req, res) => {
 });
 
 
-module.export = router;
+module.exports = router;

@@ -23,3 +23,4 @@ app.use('/', indexRoutes);
 app.listen(PORT, () =>
   console.log(`App listening at localhost:${PORT}`)
 );
+
