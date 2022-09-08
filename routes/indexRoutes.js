@@ -2,11 +2,19 @@
 const router = require('express').Router();
 const path = require ('path');
 
-//Import router
-const apiRouter = require('./apiRoutes');
 
-const app = express();
+//routes to notes/db.json/main page
+router.get("/notes", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/notes.html"));
+});
 
-app.use('/apiRoutes', apiRouter);
+router.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/index.html"));
+});
 
-module.export = route;
+router.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/index.html"));
+});
+
+
+module.export = router;
