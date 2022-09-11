@@ -12,7 +12,9 @@ router.get("/api/notes", (req, res) => {
 //Post to save note on body, add it to db.json file, and creats a unique id for each note 
 router.post("/api/notes", (req,res) => {
 
-    let note = JSON.parse(fs.readFileSync("../db/db.json"));
+    // let note = JSON.parse(fs.readFileSync("../db/db.json"));
+    let note = fs.readFileSync('db/db.json');
+    note = JSON.parse(note);
     res.json(note);
     let noteAdded = {
         title: req.body.title,
