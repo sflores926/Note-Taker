@@ -62,7 +62,7 @@ router.post("/", (req,res) => {
       };
   
       readAndAppend(newNote, './db/db.json');
-      res.json(`Note added successfully 🚀`);
+      res.json(newNote);
     } else {
       res.error('Error in adding note');
     }
