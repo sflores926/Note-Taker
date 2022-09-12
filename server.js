@@ -1,9 +1,10 @@
 // dependencies
 const express = require('express');
-
+const path = require('path');
 // Route files
-const apiRoutes = require('./routes/apiRoutes');
-const indexRoutes = require('./routes/indexRoutes');
+// const apiRoutes = require('./routes/apiRoutes');
+// const indexRoutes = require('./routes/indexRoutes');
+const api = require('./routes/indexRoutes.js');
 
 // Set port
 const PORT = process.env.PORT || 3001;
@@ -14,10 +15,28 @@ const app = express();
 // Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use('/api', api);
 
 app.use(express.static('public'));
-app.use('/api', apiRoutes);
-app.use('/', indexRoutes);
+
+//Get Route for homepage
+// app.use('/api', apiRoutes);
+// app.use('/', indexRoutes);
+app.get('/', (req, res) =>
+  res.sendFile(path.join(__dirname, '/public/index.html'))
+);
+
+//Route for note page
+app.get('/', (req, res) =>
+  res.sendFile(path.join(__dirname, '/public//notes.html'))
+);
+
+//Route to redirect to homepage
+app.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, './public/index.html'))
+);
+
+
 
 //App Listener
 app.listen(PORT, () =>
