@@ -8,7 +8,7 @@ const apiRouter = require('./apiRoutes');
 
 const app = express();
 
-app.use('/api', apiRouter);
+app.use('/apiRoutes', apiRouter);
 
 
 

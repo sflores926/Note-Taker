@@ -22,7 +22,7 @@ router.get('/:id', (req, res) => {
     readFromFile('./db/db.json')
       .then((data) => JSON.parse(data))
       .then((json) => {
-        const result = json.filter((note) => note._id === noteId);
+        const result = json.filter((note) => note.id === noteId);
         return result.length > 0
           ? res.json(result)
           : res.json('No note with that ID');
@@ -58,7 +58,7 @@ router.post("/", (req,res) => {
       const newNote = {
         title,
         text,
-        tip_id: uuidv4(),
+        id: uuidv4(),
       };
   
       readAndAppend(newNote, './db/db.json');
