@@ -60,4 +60,4 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 
 ## Screenshot
 
-![picture of note taker homepage](./Assets/screencapture-evening-brook-11484-herokuapp-notes-2022-09-12-22_02_21.png)
+![picture of note taker note page that shows added notes](./Assets/screencapture-evening-brook-11484-herokuapp-notes-2022-09-12-22_02_21.png)
